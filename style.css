@@ -1,8 +1,18 @@
 body {
   font-family: "hk grotesk";
-  font-size: 26px;
+  font-size: 32px;
   color: #333;
   line-height: 1.25;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #333;
+  z-index: 1;
 }
 
 header {
