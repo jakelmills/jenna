@@ -21,8 +21,6 @@ document.addEventListener('scroll',function(){
   const totalScrollDistance = pageHeight - window.innerHeight
   const scrollPercent = pixels / totalScrollDistance
   progressTag.style.width = `${100 * scrollPercent}%`
-  console.log(scrollPercent)
-
 })
 
 //when page is scrolled, see how far done and check for each section
@@ -43,5 +41,33 @@ document.addEventListener('scroll', function() {
         progressTag.classList.remove('white')
       }
     }
+  })
+})
+
+//when page is scroll make things parallax
+//move certain tags based on how far from anchor point
+//anchor point is middle of the section
+//parallax will be ratio of distance scrolled to middle point
+document.addEventListener('scroll', function(){
+  const topViewport = window.pageYOffset
+  const midViewport = topViewport +  (window.innerHeight / 2)
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop
+    const sectionMid = sectionTop + (section.offsetHeight / 2)
+
+    const distanceToSection = midViewport - sectionMid
+
+    const parallaxTags = section.querySelectorAll(`[data-parallax]`)
+
+    parallaxTags.forEach(tag => {
+      const speed = parseFloat(tag.getAttribute("data-parallax"))
+      tag.style.transform = `translate(0, ${distanceToSection * speed}px)`
+    })
+
+
+
+
+
   })
 })
