@@ -9,10 +9,15 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: 5px;
   width: 0%;
   background-color: #333;
   z-index: 1;
+  transition: background-color 0.5s;
+}
+
+.progress.white {
+  background-color: #fff;
 }
 
 header {
@@ -20,6 +25,11 @@ header {
   top: 36px;
   left: 36px;
   z-index: 1;
+  transition: color 0.5s;
+}
+
+header.white {
+  color: #fff;
 }
 
 section {
